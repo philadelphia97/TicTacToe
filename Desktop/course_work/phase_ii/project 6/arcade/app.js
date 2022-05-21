@@ -7,11 +7,6 @@ let isPlayerXTrue = true;
 const players = {
   xAndo : ['x', 'o']
 }
-const boardCheck = [
-    [null,null,null],
-    [null,null,null],
-    [null,null,null]
-  ]
 
 //id's for our cells
 cellOne = document.getElementById("one");
@@ -24,23 +19,15 @@ cellSeven = document.getElementById("seven");
 cellEight = document.getElementById("eight");
 cellNine = document.getElementById("nine");
 
-//function for player two's markers
-function playerO(playGame){
-  for (let i = 0; i < cells.length; i++){
-    cells[i].addEventListener('click',(e) =>{
-      cells[i].innerText = "O";
-      playGame();
-  })
-  }}
  
   //functions for playerOnes markers
-function playerX(playGame){
-for (let i = 0; i < cells.length; i++){
-  cells[i].addEventListener('click',(e) =>{
-    cells[i].innerText = "X";
-    playGame();
-  })
-  }}
+// function playerX(playGame){
+// for (let i = 0; i < cells.length; i++){
+//   cells[i].addEventListener('click',(e) =>{
+//     cells[i].innerText = "X";
+//     playGame();
+//   })
+//   }}
 
 //checks if cell was clicked
 function swapTurns(){
@@ -72,7 +59,9 @@ function displayLetter(event) {
 event.target.innerText = isPlayerXTrue ? "x" : "o";
 swapTurns();
 console.log(event)
+event.target.onclick = "";
 checkForWin();
+isDraw();
   // e.innerText = "X";
 }
 
@@ -91,7 +80,7 @@ function startGame(){
 
 function checkForWin(){
   if(cellOne.innerText === "x" && cellTwo.innerText === "x" && cellThree.innerText === "x"){
-    alert("playuer x has won!!")
+    alert("player x has won!!")
   }
   if(cellOne.innerText === "x" && cellFour.innerText === "x" && cellSeven.innerText === "x"){
    alert("player x has won!!")
@@ -138,11 +127,7 @@ if(cellFour.innerText === "o" && cellFive.innerText === "o" && cellSix.innerText
 if(cellSeven.innerText === "o" && cellEight.innerText === "o" && cellNine.innerText === "o"){
  alert("player o has won!!")
 }
-if (cellOne.innerText === "x" | "o" && cellTwo.innerText === "x" | "o" && cellThree.innerText === "x" | "o" &&
-    cellFour.innerText === "x" | "o" && cellFive.innerText === "x" | "o" && cellSix.innerText === "x" | "o" &&
-    cellSeven.innerText === "x" | "o" && cellEight.innerText === "x" | "o" && cellNine.innerText === "x" | "o"){
-      alert("It's a draw!!")
-    }
+
 }
 
 startGame();
